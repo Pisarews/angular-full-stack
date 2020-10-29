@@ -1,0 +1,44 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <h3>Course <span>{{this.courseServ.course.name}}</span></h3>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-6">
+      Course Name
+    </div>
+    <div class="col-6">
+      Course Status
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-6">
+      {{this.courseServ.course.name}}
+    </div>
+    <div class="col-6">
+      {{this.courseServ.course.status}}
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-6">
+      Course card image
+    </div>
+    <div class="col-6">
+      Instructor
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-6">
+      {{this.courseServ.course.images}}
+    </div>
+    <div class="col-6">
+      <span *ngFor="let item of this.courseServ.course.instructors">
+        {{item.name}}
+      </span>
+    </div>
+  </div>
+</div>

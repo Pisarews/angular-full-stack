@@ -1,0 +1,49 @@
+<h3 style="font-weight: bold;">Courses</h3>
+<div class="container">
+  <div class="row">
+    <div class="col-12" style="padding-bottom: 8px;">
+      <div>Filter by: <select placeholder="select value" class="form-control" [(ngModel)]="this.filter">
+          <option [value]="'name'">Name</option>
+          <option [value]="'status'">Status</option>
+        </select>
+        <span style="margin-left: 10px;" #clearButton id="clearButton" (click)="this.filter = null">clear</span>
+        <span style="float:right;">
+          <input class="form-control" type="text" placeholder="Search" aria-label="Search"
+            [(ngModel)]="this.inputFilter" (input)="this.filterItems()" /></span>
+      </div>
+
+    </div>
+  </div>
+  <div class="row  header">
+    <div class="col-1 child-header">
+      ID
+    </div>
+    <div class="col-4 child-header">
+      Image
+    </div>
+    <div class="col-4 child-header">
+      Name
+    </div>
+    <div class="col-2 child-header">
+      Status
+    </div>
+  </div>
+  <div class="row items parent"  *ngFor="let item of this.courseServ.filteredCourses" routerLink="/courses/{{item.id}}">
+
+    <div class="col-1 child">
+      {{item.id}}
+    </div>
+    <div class="col-4 child">
+      {{item.images}}
+    </div>
+    <div class="col-4 child" style="color: rgb(62, 115, 250); font-weight: bold;">
+      {{item.name}}
+      <p class="child" *ngIf="item.instructors.length > 0" style="color:black; font-weight: bold; font-size: 12px;">Instructors: <span style="font-weight: normal;" *ngFor="let variable of item.instructors">{{variable.name}}</span></p>
+    </div>
+    <div class="col-2 status child">
+      {{item.status}}
+    </div>
+    <!-- <hr class="col-xs-12"> -->
+
+  </div>
+</div>
